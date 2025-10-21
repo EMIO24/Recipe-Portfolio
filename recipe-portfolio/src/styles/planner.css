@@ -1,0 +1,139 @@
+/* Meal Planner page styles - professional, readable and responsive */
+
+.meal-planner-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 32px);
+  box-sizing: border-box;
+}
+
+.meal-planner-page header h1 {
+  margin: 0 0 8px 0;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2rem);
+}
+
+.meal-planner-page header p {
+  margin: 0 0 18px 0;
+  color: var(--text-secondary);
+}
+
+/* Planner form styling */
+.planner-form {
+  background: var(--surface-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: clamp(16px, 2.5vw, 28px);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.planner-form h2 {
+  margin-top: 0;
+}
+
+.planner-form form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Grouped input fields: consistent sizing and spacing */
+.planner-form .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+}
+
+.planner-form .field-group input,
+.planner-form .field-group textarea,
+.planner-form .field-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+  background: var(--surface-main);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+  min-height: 44px;
+}
+
+.planner-form .field-group input:focus,
+.planner-form .field-group textarea:focus,
+.planner-form .field-group select:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Date/time inputs style */
+.planner-form .field-group .row input[type="date"],
+.planner-form .field-group .row input[type="time"] {
+  padding: 12px 14px;
+}
+
+.planner-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .planner-form .row { grid-template-columns: 1fr; }
+}
+
+.planner-form .form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+}
+
+/* Plans list */
+.planner-list h2 { margin-top: 0; }
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.plan-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plan-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.plan-meta { color: var(--text-secondary); font-size: 0.95rem; }
+.plan-datetime { font-weight: 600; color: var(--brand-primary); }
+
+.plan-actions .btn.small { padding: 6px 10px; font-size: 0.9rem; }
+
+/* Quick action: view recipe / save to shopping (placeholder styles) */
+.plan-actions .btn.quick { background: var(--surface-alt); border: 1px solid var(--border-base); }
+
+.plan-actions .btn.small {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .planner-form {
+    padding: var(--space-md);
+  }
+  .planner-form .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .plan-actions {
+    justify-content: flex-end;
+  }
+}

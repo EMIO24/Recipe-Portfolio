@@ -11,14 +11,18 @@ import ShoppingList from './pages/ShoppingList.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import PlannedMeal from './pages/PlannedMeal.jsx';
+import SavedRecipes from './pages/SavedRecipes.jsx';
 import { ProfileProvider } from './context/ProfileContext.jsx';
 import PlannerContextProvider from './context/PlannerContext.jsx';
+import ToastProvider from './context/ToastContext.jsx';
 
 export default function App() {
   return (
     <Router>
       <ProfileProvider>
         <PlannerContextProvider>
+          <ToastProvider>
           <div className="page-container">
             <div className="App">
               <Navbar />
@@ -27,6 +31,8 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/recipes" element={<Recipe />} />
                 <Route path="/recipes/:id" element={<RecipeDetail />} />
+                <Route path="/planned/:id" element={<PlannedMeal />} />
+                <Route path="/saved" element={<SavedRecipes />} />
                 <Route path="/add" element={<AddEditRecipePage />} />
                 <Route path="/add/:id" element={<AddEditRecipePage />} />
                 <Route path="/planner" element={<MealPlanner />} />
@@ -38,6 +44,7 @@ export default function App() {
               <Footer />
             </div>
           </div>
+          </ToastProvider>
         </PlannerContextProvider>
       </ProfileProvider>
     </Router>

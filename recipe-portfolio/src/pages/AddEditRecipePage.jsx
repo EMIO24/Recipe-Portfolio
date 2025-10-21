@@ -4,6 +4,7 @@ import RecipeForm from "../components/RecipeForm";
 import PageHeader from "../components/PageHeader";
 import LoadingSpinner from "../components/LoadingSpinner";
 import useRecipes from "../hooks/useRecipes";
+import "../styles/add-edit-recipe.css";
 
 /*
     Assumed existing project components / hooks. Adjust import paths if your project differs.
@@ -70,20 +71,20 @@ function AddEditRecipePage() {
     };
 
     return (
-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "24px" }}>
+        <div className="ae-page-container">
             <PageHeader
                 title={isEditing ? "Edit Recipe" : "Add New Recipe"}
                 subtitle={isEditing ? "Make changes to your recipe and save." : "Create a new recipe to add to your portfolio."}
             />
 
             {loading ? (
-                <div style={{ display: "flex", justifyContent: "center", marginTop: 40 }}>
+                <div className="ae-loading">
                     <LoadingSpinner />
                 </div>
             ) : (
                 <>
                     {error && (
-                        <div style={{ color: "var(--danger, #b00020)", marginBottom: 12 }}>
+                        <div className="ae-error">
                             {error}
                         </div>
                     )}

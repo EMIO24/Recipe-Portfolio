@@ -30,6 +30,7 @@ export default function PlannerContextProvider({ children }) {
   }, [plans]);
 
   const addPlan = (plan) => {
+    // Accept plan objects with optional date/time fields (ISO strings). Keep backwards compatibility.
     setPlans((prevPlans) => [...prevPlans, plan]);
   };
 

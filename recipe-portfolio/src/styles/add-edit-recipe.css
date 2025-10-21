@@ -1,0 +1,163 @@
+/* * Add/Edit Recipe Page Styles 
+ * Professional, utilizing modern CSS variables and responsiveness.
+ */
+
+/* ==================================== */
+/* 1. PAGE CONTAINER & STRUCTURE */
+/* ==================================== */
+
+.ae-page-container {
+    /* Use a standard large width for forms, centering it. */
+    max-width: 900px;
+    margin: 0 auto;
+    /* Responsive padding using design tokens for breakpoints */
+    padding: var(--space-lg); 
+    box-sizing: border-box;
+}
+
+/* Page header spacing: Ensure large, consistent gap after the title */
+.ae-page-container .page-header,
+.ae-page-container > header {
+    margin-bottom: var(--space-xl); /* Increased from space-md for visual breathing room */
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Ensure the form content is elevated inside a card for focus */
+.ae-page-container .recipe-form {
+    /* Uses the generic .card styling defined in global CSS for background, shadow, and padding. */
+    /* Add padding/margin if the form itself is not a card: */
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-xl); /* Generous padding inside the form area */
+    background: var(--surface-main);
+    border-radius: var(--radius-lg); /* Slightly larger radius */
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-subtle);
+}
+
+/* Form field styles */
+.recipe-form label {
+    display: block;
+    margin-bottom: calc(var(--space-sm) / 2);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.recipe-form input[type="text"],
+.recipe-form input,
+.recipe-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-base);
+    border-radius: var(--radius-sm);
+    background: var(--surface-main);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    transition: var(--transition-fast);
+    box-sizing: border-box;
+}
+
+.recipe-form textarea { resize: vertical; }
+
+.recipe-form input:focus, .recipe-form textarea:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 4px rgba(233, 84, 0, 0.06);
+}
+
+/* Group spacing between fields */
+.recipe-form > label + label,
+.recipe-form > label + .form-actions,
+.recipe-form .form-group {
+    margin-top: var(--space-md);
+}
+
+/* Reduce textarea font-size slightly for long instructions */
+.recipe-form textarea {
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+/* Small helper below inputs when needed */
+.field-help {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+}
+
+/* ==================================== */
+/* 2. STATES (Loading, Error) */
+/* ==================================== */
+
+/* Loading wrapper */
+.ae-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px; /* Give it space */
+    color: var(--brand-primary);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+}
+
+/* Error state: Attractive and informative */
+.ae-error {
+    color: var(--color-danger);
+    background: rgba(211, 47, 47, 0.06); /* Light red background */
+    border: 1px solid rgba(211, 47, 47, 0.2);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-lg); /* Larger margin bottom */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+/* You would need an icon (e.g., SVG/Lucide 'AlertCircle') in the component */
+
+/* ==================================== */
+/* 3. FORM ACTIONS */
+/* ==================================== */
+
+/* Buttons alignment and responsive layout */
+.ae-page-container .form-actions {
+    display: flex;
+    gap: var(--space-md); /* Consistent gap */
+    justify-content: flex-end;
+    margin-top: var(--space-xl); /* Large margin to separate content from actions */
+    padding: var(--space-sm) 0;
+}
+
+/* ==================================== */
+/* 4. ACCESSIBILITY & RESPONSIVENESS */
+/* ==================================== */
+
+/* Accessibility: ensure focus outlines are visible using the brand accent color */
+.ae-page-container a:focus-visible,
+.ae-page-container button:focus-visible {
+    outline: 3px solid var(--brand-accent-dark);
+    outline-offset: 4px; /* More offset for visibility */
+    border-radius: var(--radius-md);
+}
+
+/* Mobile Adaptations */
+@media (max-width: 768px) {
+    /* Smaller padding on mobile */
+    .ae-page-container {
+        padding: var(--space-md);
+    }
+    
+    /* Stack form actions and enlarge touch targets */
+    .ae-page-container .form-actions {
+        flex-direction: column-reverse; /* Put primary button on bottom */
+        align-items: stretch;
+        gap: var(--space-sm);
+    }
+
+    .ae-page-container .form-actions .btn {
+        width: 100%;
+        padding: var(--space-md) var(--space-lg); /* Larger tap area */
+        font-size: var(--font-size-lg);
+    }
+}
