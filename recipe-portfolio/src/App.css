@@ -1,0 +1,81 @@
+@import './styles/variables.css';
+@import './styles/global.css';
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-4);
+}
+
+/* Grid Layouts */
+.recipes-grid,
+.meals-grid,
+.stats-grid {
+    display: grid;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+}
+
+.recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.meals-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: var(--spacing-12);
+}
+
+.section-header {
+    margin-bottom: var(--spacing-6);
+}
+
+.section-title {
+    color: var(--text);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-2);
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        padding: var(--spacing-4);
+    }
+    
+    .section {
+        margin-bottom: var(--spacing-8);
+    }
+    
+    .recipes-grid,
+    .meals-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Utility Classes */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: var(--spacing-4); }
+.text-center { text-align: center; }

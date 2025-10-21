@@ -11,7 +11,7 @@ export function StatsCard({title, description}){
     )
 }
 
-StatsCard.PropTypes = {
-    title: PropTypes.string,
-    description: PropTypes.string,
+StatsCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 }

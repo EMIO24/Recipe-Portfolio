@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* ================================== */
+    /* 1. PALETTE & DESIGN TOKENS (Revised) */
+    /* ================================== */
+
+    /* Primary Brand Color: Deep, Premium Orange */
+    --brand-primary: #E95400;
+    --brand-primary-light: #FF884D;
+    --brand-primary-dark: #B33D00;
+
+    /* Accent Color: Corporate Green/Teal for indicators */
+    --brand-accent: #008761;
+    --brand-accent-dark: #006648; /* Added for hover state */
+
+    /* Semantic Colors */
+    --color-danger: #D32F2F;
+    --color-success: var(--brand-accent);
+
+    /* Backgrounds & Surfaces: Subtle contrast for depth */
+    --bg-page: #F5F7FA;
+    --surface-main: #ffffff; /* White card background */
+    --surface-alt: #F0F4F8; /* Subtle background for inputs/muted areas */
+    --surface-hover: #FFFDFB; /* Very slight lift color */
+
+    /* Typography */
+    --text-primary: #0F172A; /* Darker, near-black */
+    --text-secondary: #6B7280; /* Muted gray for body/context */
+    --text-inverted: #ffffff;
+    
+    /* Borders & Dividers */
+    --border-base: #DEE4EE;
+    --border-subtle: #F0F4F8; /* New subtle border color */
+
+    /* ================================== */
+    /* 2. SPACING & SIZING (Standardized) */
+    /* ================================== */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px; 
+
+    /* Border radius: More generous rounding */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+
+    /* Shadows: Softer, larger shadows for a floating effect */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly more prominent */
+    --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.15); /* Stronger lift effect */
+
+    /* Transitions */
+    --transition-fast: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother curve */
+
+    /* Layout */
+    --max-content-width: 1280px;
+
+    /* Re-added Font Size Scale for Typography Components */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+}
+
+/* ================================== */
+/* 0. RESET & GLOBAL STYLES */
+/* ================================== */
+
+/* Universal Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Styles - Now using Poppins */
+body {
+    font-family: 'Poppins', 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    font-weight: 700;
+    line-height: 1.25; /* Slightly increased line height for legibility */
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em; /* Subtle, modern typography touch */
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+
+p { margin-bottom: var(--space-md); } 
+
+/* ================================== */
+/* 3. LAYOUT COMPONENTS */
+/* ================================== */
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+    width: 100%; 
+}
+
+/* General Layout Container */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md); 
+}
+
+.page-content {
+    padding: var(--space-xl) 0;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--surface-main);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-md) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.brand .logo {
+    font-weight: 800; 
+    color: var(--brand-primary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    padding: var(--space-sm) 0;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--brand-primary);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--brand-primary);
+    border-radius: 2px;
+}
+
+/* Footer */
+.footer {
+    padding: var(--space-xl) var(--space-md);
+    background: var(--surface-alt); 
+    color: var(--text-primary);
+    border-top: 1px solid var(--border-base);
+    margin-top: var(--space-xl);
+}
+
+.footer-content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.footer-section h4 {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+}
+
+/* ================================== */
+/* 4. CORE UI COMPONENTS */
+/* ================================== */
+
+/* General Card Component (Sophistication: Subtle border and more lift on hover) */
+.card {
+    background-color: var(--surface-main);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-lg); 
+    transition: var(--transition-fast);
+    border: 1px solid var(--border-subtle); /* Added subtle border */
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg); /* Increased shadow size for a more pronounced "lift" */
+    transform: translateY(-4px); /* Stronger lift effect */
+}
+
+/* Buttons (Modern & Accessible) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; 
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600; 
+    transition: var(--transition-fast);
+    min-width: 100px;
+    line-height: 1;
+    font-size: var(--font-size-base);
+    gap: var(--space-sm); 
+}
+
+.btn-primary {
+    background: var(--brand-primary);
+    color: var(--text-inverted);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--brand-primary-dark); /* Darker shade on hover for depth */
+    box-shadow: 0 8px 15px rgba(233, 84, 0, 0.3); /* Custom shadow for primary lift */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--surface-alt); 
+    color: var(--text-primary);
+    border: 1px solid var(--border-base);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-main);
+    border-color: var(--brand-primary);
+    transform: translateY(-1px);
+}
+
+.btn-accent {
+    background-color: var(--brand-accent);
+    color: var(--text-inverted);
+}
+
+.btn-accent:hover {
+    background-color: var(--brand-accent-dark);
+    transform: translateY(-1px);
+}
+
+/* Accessible Focus States for Buttons */
+.btn:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 3px;
+}
+
+/* Inputs & Forms */
+.form-group {
+    margin-bottom: var(--space-md); 
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--space-sm); 
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-input, .form-textarea { 
+    width: 100%;
+    padding: 10px 16px; 
+    border: 1px solid var(--border-base);
+    border-radius: var(--radius-sm);
+    background-color: var(--surface-main);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    transition: var(--transition-fast);
+    box-sizing: border-box;
+}
+
+/* Sophisticated Focus State for Inputs */
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(233, 84, 0, 0.2); /* Softer focus ring shadow */
+}
+
+.form-input:focus-visible, .form-textarea:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+/* Search Bar (Tighter integration) */
+.search-bar {
+    display: flex;
+    gap: var(--space-sm);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 16px; 
+}
+
+/* ================================== */
+/* 5. DATA CARDS (The Money Shots) */
+/* ================================== */
+
+/* Recipe Card: Clean, elevated, click-friendly */
+.recipe-card {
+    background: var(--surface-main);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-subtle); /* Added border to match general card */
+}
+
+.recipe-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px); 
+    background: var(--surface-hover);
+}
+
+.recipe-image-wrap img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    /* Use border-radius only on top corners */
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+}
+
+.recipe-card-body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.recipe-card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: var(--space-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    align-items: center;
+}
+
+/* Meal Card: Indicator based */
+.meal-card {
+    background: var(--surface-main);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    border-left: 5px solid var(--brand-accent); 
+    transition: var(--transition-fast);
+}
+
+.meal-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px); 
+}
+
+.meal-card h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+/* Stats Card: Focus on numbers */
+.stats-card {
+    background: var(--surface-main);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-base); 
+}
+
+.stats-card h4 {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stats-card p {
+    color: var(--brand-primary); 
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+/* ================================== */
+/* 6. UTILITIES & RESPONSIVENESS */
+/* ================================== */
+
+/* Grids */
+.grid {
+    display: grid;
+    gap: var(--space-lg); 
+}
+
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.recipe-grid, .plans-grid, .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg); 
+}
+
+/* Hero Section: Engaging visual center */
+.hero {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-md);
+    background: linear-gradient(145deg, rgba(233, 84, 0, 0.04), rgba(0, 135, 97, 0.04));
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    margin-top: var(--space-md);
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Added subtle edge to hero */
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: var(--space-md);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto var(--space-xl);
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-secondary); } 
+.mb-4 { margin-bottom: var(--space-md); }
+.mb-8 { margin-bottom: var(--space-xl); }
+.mt-4 { margin-top: var(--space-md); }
+.mt-8 { margin-top: var(--space-xl); }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .grid-cols-4 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links {
+        gap: var(--space-md);
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    /* Responsive Grid Adjustments */
+    .grid-cols-3, .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+    
+    .recipe-grid, .plans-grid, .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid-cols-2, .grid-cols-3, .grid-cols-4 { grid-template-columns: 1fr; }
+    
+    .container {
+        padding: 0 var(--space-md);
+    }
+}
+/* End of global.css */
