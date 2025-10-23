@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useRecipes from '../hooks/useRecipes';
 import RecipeCard from '../components/RecipeCard';
+import Navbar from '../components/Navbar.jsx';
 
 export default function SavedRecipes(){
   const { listRecipes } = useRecipes();
@@ -13,6 +14,7 @@ export default function SavedRecipes(){
 
   return (
     <div style={{padding:24}}>
+      <Navbar />
       <header style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
         <h1>Saved Recipes</h1>
         <Link to="/add" className="btn">Add Recipe</Link>

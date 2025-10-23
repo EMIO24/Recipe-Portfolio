@@ -1,29 +1,42 @@
-import React, { useState } from 'react';
+// src/components/SearchBar.jsx
+import React, { useState } from "react";
+import "../styles/SearchBar.css"; // adjust path if your CSS is elsewhere
 
+export default function SearchBar({ onSearch }) {
+  const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
-export function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!query.trim()) return;
 
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle search logic here (e.g., API call, filtering data)
-    console.log(`Searching for: ${searchTerm}`);
+    setLoading(true);
+    try {
+      // Call parent's handler (Home) which will perform the API request
+      if (typeof onSearch === "function") {
+        await onSearch(query);
+      }
+    } catch (err) {
+      console.error("Search error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="search"
-        value={searchTerm}
-        onChange={handleInputChange}
-        placeholder="Search..."
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className="search-bar">
+      <form className="search-form" onSubmit={handleSubmit}>
+        <input
+          type="search"
+          className="search-input"
+          placeholder="Search for a recipe..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className="search-button" type="submit" disabled={loading}>
+          {loading ? "Searching..." : "Search"}
+        </button>
+      </form>
+    </div>
   );
 }
-

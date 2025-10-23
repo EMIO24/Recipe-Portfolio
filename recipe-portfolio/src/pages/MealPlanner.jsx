@@ -5,6 +5,7 @@ import '../styles/components.css';
 import '../styles/planner.css';
 import { useToast } from '../context/ToastContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar.jsx';
 
 export function MealPlanner() {
     const { plans, addPlan, updatePlan, deletePlan } = usePlanner();
@@ -74,6 +75,7 @@ export function MealPlanner() {
     return (
         <div className="meal-planner-page">
             <header>
+                <Navbar />
                 <h1>Meal Planner</h1>
                 <p>Plan meals for the week and keep quick access to recipes.</p>
             </header>

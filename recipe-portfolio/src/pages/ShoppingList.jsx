@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar.jsx';
 
 
 export default function ShoppingList() {
@@ -31,6 +32,7 @@ export default function ShoppingList() {
 	return (
 		<div style={{ padding: 20 }}>
 			<header>
+                <Navbar />
 				<h1>Shopping List</h1>
 				<p>Keep ingredients handy for your planned meals.</p>
 			</header>

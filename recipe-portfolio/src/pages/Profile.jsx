@@ -7,6 +7,7 @@ import { useProfile } from '../context/ProfileContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 import '../styles/components.css';
 import '../styles/profile.css';
+import Navbar from '../components/Navbar.jsx';
 
 export function Profile() {
     const { profile, loading, updateProfile, updatePreferences } = useProfile();
@@ -69,6 +70,7 @@ export function Profile() {
 
     return (
         <div className="profile-page">
+            <Navbar />
             <PageHeader title="Profile" subtitle="Manage your account and preferences" />
 
             <main className="profile-content">

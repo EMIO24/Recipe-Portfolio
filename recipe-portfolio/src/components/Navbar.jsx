@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
     return (
         <header className="navbar">
             <div className="navbar-content">
@@ -17,13 +17,8 @@ function Navbar() {
                     <Link className="nav-link" to="/profile">Profile</Link>
                 </nav>
 
-                <div className="nav-actions">
-                    <div className="search-placeholder">🔍</div>
-                    <div className="profile-placeholder">👤</div>
-                </div>
             </div>
         </header>
     );
 }
 
-export default Navbar;

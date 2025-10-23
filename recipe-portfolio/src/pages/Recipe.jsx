@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
 import useRecipes from '../hooks/useRecipes';
+import Navbar from '../components/Navbar.jsx';
 
 export default function Recipe() {
     const { listRecipes, deleteRecipe } = useRecipes();
@@ -33,6 +34,7 @@ export default function Recipe() {
 
     return (
         <div className="recipes-page">
+            <Navbar />
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h1>Recipes</h1>
                 <Link to="/add" className="btn">Add Recipe</Link>

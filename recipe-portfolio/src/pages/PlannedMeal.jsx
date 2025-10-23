@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { usePlanner } from '../context/PlannerContext';
+import Navbar from '../components/Navbar.jsx';
 
 export default function PlannedMeal(){
   const { id } = useParams();
@@ -16,6 +17,7 @@ export default function PlannedMeal(){
 
   return (
     <div style={{padding:24}}>
+      <Navbar />
       <h1>{meal.name}</h1>
       <p>{meal.description}</p>
       <p>Calories: {meal.calories}</p>

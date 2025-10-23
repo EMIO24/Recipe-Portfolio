@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import useRecipes from '../hooks/useRecipes';
 import LoadingSpinner from '../components/LoadingSpinner';
+import Navbar from '../components/Navbar.jsx';
 
 
 export default function RecipeDetail() {
@@ -37,6 +38,7 @@ export default function RecipeDetail() {
 
 	return (
 		<div className="recipe-detail" style={{ padding: 24 }}>
+			<Navbar />
 			<h1>{recipe.title || recipe.name}</h1>
 			{recipe.summary && <p>{recipe.summary}</p>}
 

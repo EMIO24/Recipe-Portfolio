@@ -5,6 +5,8 @@ import PageHeader from "../components/PageHeader";
 import LoadingSpinner from "../components/LoadingSpinner";
 import useRecipes from "../hooks/useRecipes";
 import "../styles/add-edit-recipe.css";
+import Navbar from "../components/Navbar.jsx";
+
 
 /*
     Assumed existing project components / hooks. Adjust import paths if your project differs.
@@ -72,6 +74,7 @@ function AddEditRecipePage() {
 
     return (
         <div className="ae-page-container">
+            <Navbar />
             <PageHeader
                 title={isEditing ? "Edit Recipe" : "Add New Recipe"}
                 subtitle={isEditing ? "Make changes to your recipe and save." : "Create a new recipe to add to your portfolio."}
