@@ -1,12 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000,
-  },
+  // **THIS IS THE CRITICAL FIX:** // Sets the base public path when served in production.
+  // Using '/' or './' should fix asset loading issues on Vercel.
+  base: '/', 
+  
   build: {
-    outDir: 'dist'
-  }
-})
+    outDir: 'dist', // Must match the 'distDir' in vercel.json
+    // other build options...
+  },
+  // other configs...
+});
