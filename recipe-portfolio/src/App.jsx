@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom'; // HashRouter as Router is removed
 import './App.css';
 import Home from './pages/Home.jsx';
 import Recipe from './pages/Recipe.jsx';
@@ -18,33 +18,33 @@ import ToastProvider from './context/ToastContext.jsx';
 
 export default function App() {
   return (
-    <Router>
-      <ProfileProvider>
-        <PlannerContextProvider>
-          <ToastProvider>
-            <div className="page-container">
-              <div className="App">
-                <main className="main-content">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/recipes" element={<Recipe />} />
-                    <Route path="/recipes/:id" element={<RecipeDetail />} />
-                    <Route path="/planned/:id" element={<PlannedMeal />} />
-                    <Route path="/saved" element={<SavedRecipes />} />
-                    <Route path="/add" element={<AddEditRecipePage />} />
-                    <Route path="/add/:id" element={<AddEditRecipePage />} />
-                    <Route path="/planner" element={<MealPlanner />} />
-                    <Route path="/shopping" element={<ShoppingList />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </main>
-                <Footer />
-              </div>
+    // The outermost <Router> component has been removed here.
+    // The app now relies on the single <HashRouter> wrapper provided in main.jsx.
+    <ProfileProvider>
+      <PlannerContextProvider>
+        <ToastProvider>
+          <div className="page-container">
+            <div className="App">
+              <main className="main-content">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/recipes" element={<Recipe />} />
+                  <Route path="/recipes/:id" element={<RecipeDetail />} />
+                  <Route path="/planned/:id" element={<PlannedMeal />} />
+                  <Route path="/saved" element={<SavedRecipes />} />
+                  <Route path="/add" element={<AddEditRecipePage />} />
+                  <Route path="/add/:id" element={<AddEditRecipePage />} />
+                  <Route path="/planner" element={<MealPlanner />} />
+                  <Route path="/shopping" element={<ShoppingList />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+              <Footer />
             </div>
-          </ToastProvider>
-        </PlannerContextProvider>
-      </ProfileProvider>
-    </Router>
+          </div>
+        </ToastProvider>
+      </PlannerContextProvider>
+    </ProfileProvider>
   );
 }
