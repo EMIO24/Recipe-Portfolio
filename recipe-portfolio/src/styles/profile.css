@@ -5,6 +5,7 @@
     flex-direction: column;
     background-color: var(--bg-alt);
     padding: 20px;
+    text-align: center;
 }
 
 .profile-content {

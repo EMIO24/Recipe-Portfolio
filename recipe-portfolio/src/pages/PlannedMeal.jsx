@@ -16,7 +16,7 @@ export default function PlannedMeal(){
   );
 
   return (
-    <div style={{padding:24}}>
+    <div style={{padding:24, textAlign: 'center', marginTop: 100}}>
       <Navbar />
       <h1>{meal.name}</h1>
       <p>{meal.description}</p>

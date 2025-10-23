@@ -117,10 +117,10 @@ export function Home() {
   const mealsElements = todayMealsElements.length > 0 ? todayMealsElements : fallbackMealsElements;
 
   return (
-    <div className="home-page">
+    <div className="home-page" style={{ textAlign: 'center' }}>
       <header>
+        <Navbar />
         <section className="home-hero">
-          <Navbar />
           <section className="hero-section">
             <div className="hero-content">
               <h1 className="hero-title">EMIO Meal Planner</h1>

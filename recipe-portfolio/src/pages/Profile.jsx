@@ -69,9 +69,10 @@ export function Profile() {
     };
 
     return (
-        <div className="profile-page">
-            <Navbar />
-            <PageHeader title="Profile" subtitle="Manage your account and preferences" />
+        <>
+        <Navbar />
+        <div className="profile-page" style={{ marginTop: 100 }}>
+            <PageHeader title="Profile" subtitle="Manage your account and preferences"/>
 
             <main className="profile-content">
                 <section className="profile-card">
@@ -181,6 +182,7 @@ export function Profile() {
                 </section>
             </main>
         </div>
+        </>
     );
 }
 

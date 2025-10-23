@@ -13,7 +13,7 @@ export default function SavedRecipes(){
   },[listRecipes]);
 
   return (
-    <div style={{padding:24}}>
+    <div style={{padding:24, marginTop: 100, textAlign: 'center'}}>
       <Navbar />
       <header style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
         <h1>Saved Recipes</h1>

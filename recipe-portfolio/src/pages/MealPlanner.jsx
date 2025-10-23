@@ -73,9 +73,10 @@ export function MealPlanner() {
         };
 
     return (
-        <div className="meal-planner-page">
+        <>
+        <Navbar />
+        <div className="meal-planner-page" style={{ textAlign: 'center', marginTop: 100, padding: 24 }}>
             <header>
-                <Navbar />
                 <h1>Meal Planner</h1>
                 <p>Plan meals for the week and keep quick access to recipes.</p>
             </header>
@@ -145,6 +146,7 @@ export function MealPlanner() {
                 )}
             </section>
         </div>
+        </>
     );
 }
 

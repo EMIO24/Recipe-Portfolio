@@ -33,7 +33,7 @@ export default function Recipe() {
     };
 
     return (
-        <div className="recipes-page">
+        <div className="recipes-page" style={{ textAlign: 'center',  marginTop: 100, padding: 24 }}>
             <Navbar />
             <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h1>Recipes</h1>

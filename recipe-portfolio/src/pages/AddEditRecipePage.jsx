@@ -73,8 +73,9 @@ function AddEditRecipePage() {
     };
 
     return (
-        <div className="ae-page-container">
-            <Navbar />
+        <>
+        <Navbar />
+        <div className="ae-page-container" style={{ textAlign: 'center', marginTop: 100, padding: 24 }}>
             <PageHeader
                 title={isEditing ? "Edit Recipe" : "Add New Recipe"}
                 subtitle={isEditing ? "Make changes to your recipe and save." : "Create a new recipe to add to your portfolio."}
@@ -102,6 +103,7 @@ function AddEditRecipePage() {
                 </>
             )}
         </div>
+        </>
     );
 }
 

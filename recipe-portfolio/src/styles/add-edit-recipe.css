@@ -13,6 +13,7 @@
     /* Responsive padding using design tokens for breakpoints */
     padding: var(--space-lg); 
     box-sizing: border-box;
+    text-align: center;
 }
 
 /* Page header spacing: Ensure large, consistent gap after the title */

@@ -37,7 +37,7 @@ export default function RecipeDetail() {
 		);
 
 	return (
-		<div className="recipe-detail" style={{ padding: 24 }}>
+		<div className="recipe-detail" style={{ padding: 24, marginTop: 100, textAlign: 'center' }}>
 			<Navbar />
 			<h1>{recipe.title || recipe.name}</h1>
 			{recipe.summary && <p>{recipe.summary}</p>}

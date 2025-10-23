@@ -30,9 +30,10 @@ export default function ShoppingList() {
 	const remove = (id) => setItems((s) => s.filter((i) => i.id !== id));
 
 	return (
-		<div style={{ padding: 20 }}>
+        <>
+        <Navbar />
+		<div style={{ padding: 20, marginTop: 100, textAlign: 'center' }}>
 			<header>
-                <Navbar />
 				<h1>Shopping List</h1>
 				<p>Keep ingredients handy for your planned meals.</p>
 			</header>
@@ -54,5 +55,6 @@ export default function ShoppingList() {
 				<Link to="/planner">Back to planner</Link>
 			</div>
 		</div>
+        </>
 	);
 }

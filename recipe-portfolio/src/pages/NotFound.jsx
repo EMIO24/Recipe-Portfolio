@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar.jsx';
 export default function NotFound() {
 	return (
         <><Navbar />
-            <div style={{ padding: 40, textAlign: 'center' }}>
+            <div style={{ padding: 40, textAlign: 'center', marginTop: 100 }}>
 			<h1>404 — Page not found</h1>
 			<p>We couldn't find the page you're looking for.</p>
 			<p>

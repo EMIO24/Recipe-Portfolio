@@ -139,18 +139,27 @@ p { margin-bottom: var(--space-md); }
 }
 
 /* Navbar */
+/* Navbar - FIXED FOR FULL WIDTH */
 .navbar {
     background: var(--surface-main);
     box-shadow: var(--shadow-sm);
-    padding: var(--space-md) 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    max-width: 100%;
+    
+    /* FIX 1: Ensure it takes the full width of the viewport/parent */
+    width: 100%; 
+    
+    /* FIX 2: Set padding ONLY once. This gives vertical padding, but NO horizontal padding */
+    padding: var(--space-md) 0;
+    
+    /* FIX 3: Remove unnecessary and potentially conflicting properties */
+    max-width: none; /* Crucial to ensure no parent constraint limits it */
     margin: 0;
-    padding: 0;
 }
 
+/* * The navbar-content is correct and is what keeps the links contained.
+*/
 .navbar-content {
     display: flex;
     justify-content: space-between;
@@ -465,6 +474,7 @@ p { margin-bottom: var(--space-md); }
     text-align: center;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-base); 
+    text-decoration: none; 
 }
 
 .stats-card h4 {
@@ -499,6 +509,7 @@ p { margin-bottom: var(--space-md); }
     color: var(--text-primary);
     border: 1px solid var(--border-subtle);
     transition: var(--transition-fast);
+    text-decoration: none; 
 }
 
 .statcard:hover {
@@ -646,3 +657,5 @@ p { margin-bottom: var(--space-md); }
 
 .meal-desc { color: var(--text-secondary); margin: 6px 0; }
 .meal-meta { color: var(--text-secondary); font-weight: 600; }
+
+
