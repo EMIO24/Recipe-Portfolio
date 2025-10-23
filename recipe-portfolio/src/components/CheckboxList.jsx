@@ -1,4 +1,4 @@
-
+import React from 'react';
 export default function CheckboxList({ options, selectedOptions, onChange }) {
   return (
     <div className="checkbox-list">

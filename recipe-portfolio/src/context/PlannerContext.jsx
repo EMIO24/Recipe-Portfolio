@@ -1,5 +1,4 @@
-
-import { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const PlannerContext = createContext();
 
@@ -7,24 +6,31 @@ export function usePlanner() {
   return useContext(PlannerContext);
 }
 
+// NOTE: For real-world use, replace localStorage with Firebase/Firestore
 const STORAGE_KEY = 'rp_plans_v1';
 
 export default function PlannerContextProvider({ children }) {
   const [plans, setPlans] = useState([]);
 
+  // Load plans from localStorage on mount
   useEffect(() => {
     try {
+      // Line 45 (or near it) was where the crash occurred previously.
       const raw = localStorage.getItem(STORAGE_KEY);
       setPlans(raw ? JSON.parse(raw) : []);
     } catch (e) {
+      // Error handling if localStorage is inaccessible
+      console.error("Could not read plans from localStorage:", e);
       setPlans([]);
     }
   }, []);
 
+  // Save plans to localStorage whenever 'plans' state changes
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(plans));
     } catch (e) {
+      console.warn("Could not save plans to localStorage:", e);
       // ignore
     }
   }, [plans]);

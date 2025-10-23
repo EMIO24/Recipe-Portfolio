@@ -1,4 +1,4 @@
-
+import React from 'react';
 export default function FilterDropdown({ options, selectedOption, onChange }) {
   return (
     <select value={selectedOption} onChange={onChange}>

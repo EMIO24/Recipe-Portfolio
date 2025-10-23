@@ -1,3 +1,4 @@
+import React from 'react';
 import proptypes from 'prop-types';
 
 export default function RecipeCard({ id, name, description, calories, image, onView, onEdit, onDelete }) {

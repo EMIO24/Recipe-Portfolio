@@ -1,3 +1,6 @@
+import React from "react";
+
+const RecipeContext = createContext();
 
 export function useRecipe() {
   return useContext(RecipeContext);
