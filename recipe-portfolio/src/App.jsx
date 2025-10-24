@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'; // HashRouter as Router is removed
 import './App.css';
+import { Analytics } from "@vercel/analytics/react"; 
 import Home from './pages/Home.jsx';
 import Recipe from './pages/Recipe.jsx';
 import MealPlanner from './pages/MealPlanner.jsx';
@@ -25,6 +26,7 @@ export default function App() {
         <ToastProvider>
           <div className="page-container">
             <div className="App">
+              <Analytics /> 
               <main className="main-content">
                 <Routes>
                   <Route path="/" element={<Home />} />
